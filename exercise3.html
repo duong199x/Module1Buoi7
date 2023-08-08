@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 20px;
+        }
+
+        td, button {
+            width: 80px;
+            height: 50px;
+            background-color: #d3d3d3;
+            border: #d3d3d3;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        div {
+            display: inline-block;
+            border: 1px solid #d3d3d3;
+            padding: 15px 10px;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input style="height: 30px;width: 580px; text-align: right" id="inputValue" disabled>
+    <table>
+        <tr>
+            <td>
+                <button>Rad</button>
+            </td>
+            <td>
+                <button><img src="2263611.png" style="width: 50px;height: 40px"></button>
+            </td>
+            <td>
+                <button>x!</button>
+            </td>
+            <td>
+                <button>(</button>
+            </td>
+            <td>
+                <button>)</button>
+            </td>
+            <td>
+                <button>%</button>
+            </td>
+            <td>
+                <button onclick="setDefaulValue()">AC</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>lnv</button>
+            </td>
+            <td>
+                <button>sin</button>
+            </td>
+            <td>
+                <button>ln</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="7" onclick="number(event)">7</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="8" onclick="number(event)">8</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="9" onclick="number(event)">9</button>
+            </td>
+            <td>
+                <button value="/" onclick="number(event)">/</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>π</button>
+            </td>
+            <td>
+                <button>cos</button>
+            </td>
+            <td>
+                <button>log</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="4" onclick="number(event)">4</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="5" onclick="number(event)">5</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="6" onclick="number(event)">6</button>
+            </td>
+            <td>
+                <button value="*" onclick="number(event)">x</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>e</button>
+            </td>
+            <td>
+                <button>tan</button>
+            </td>
+            <td>
+                <button>✓</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="1" onclick="number(event)">1</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="2" onclick="number(event)">2</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="3" onclick="number(event)">3</button>
+            </td>
+            <td>
+                <button value="-" onclick="number(event)">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>Ans</button>
+            </td>
+            <td>
+                <button>EXP</button>
+            </td>
+            <td>
+                <button>x<sup>y</sup></button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" value="0" onclick="number(event)">0</button>
+            </td>
+            <td>
+                <button style="background-color: #f3f3f3" onclick="number(event)" value=".">.</button>
+            </td>
+            <td>
+                <button style="background-color: #4b8df9; color: white" onclick="Results()">=</button>
+            </td>
+            <td>
+                <button value="+" onclick="number(event)">+</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script>
+    let str = '';
+
+    function number(event) {
+        let num = event.target.value;
+        str += num;
+        document.getElementById('inputValue').value = str;
+    }
+
+    function Results() {
+        str = document.getElementById('inputValue').value = eval(str);
+    }
+
+    function setDefaulValue() {
+        document.getElementById('inputValue').value = '';
+        str = '';
+    }
+</script>
+</html>

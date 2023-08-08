@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Caculator</h1>
+<input type="number" placeholder="Nhập số thứ nhất" id="numberOne"><span id="iconImport"></span>
+<input type="number" placeholder="Nhập số thứ hai" id="numberTwo"><br>
+<button onclick="results(event)" value="addition">Cộng(+)</button>
+<button onclick="results(event)" value="subtraction">Trừ(-)</button>
+<button onclick="results(event)" value="multiplication">Nhân(x)</button>
+<button onclick="results(event)" value="division">Chia(/)</button>
+<h3>Result:</h3>
+<p id="result">Đây là kết quả</p>
+</body>
+<script>
+    function Addition() {
+        let numberOne = +document.getElementById('numberOne').value;
+        let numberTwo = +document.getElementById('numberTwo').value;
+        let addition = numberOne + numberTwo;
+        document.getElementById('result').innerHTML = addition;
+    }
+
+    function Subtraction() {
+        let numberOne = +document.getElementById('numberOne').value;
+        let numberTwo = +document.getElementById('numberTwo').value;
+        let subtraction = numberOne - numberTwo;
+        document.getElementById('result').innerHTML = subtraction;
+    }
+
+    function Multiplication() {
+        let numberOne = +document.getElementById('numberOne').value;
+        let numberTwo = +document.getElementById('numberTwo').value;
+        let multiplication = numberOne * numberTwo;
+        document.getElementById('result').innerHTML = multiplication;
+
+    }
+
+    function Division() {
+        let numberOne = +document.getElementById('numberOne').value;
+        let numberTwo = +document.getElementById('numberTwo').value;
+        let division = numberOne / numberTwo;
+        document.getElementById('result').innerHTML = division;
+    }
+
+    function results(event) {
+        let key = event.target.value;
+        let numberOne = +document.getElementById('numberOne').value;
+        let numberTwo = +document.getElementById('numberTwo').value;
+        switch (key) {
+            case 'addition':
+                document.getElementById('iconImport').innerHTML = '+';
+                document.getElementById('result').innerHTML = numberOne + numberTwo;
+                break;
+            case 'subtraction':
+                document.getElementById('iconImport').innerHTML = '-';
+                document.getElementById('result').innerHTML = numberOne - numberTwo;
+                break;
+            case 'multiplication':
+                document.getElementById('iconImport').innerHTML = 'x';
+                document.getElementById('result').innerHTML = numberOne * numberTwo;
+                break;
+            case 'division':
+                document.getElementById('iconImport').innerHTML = '/';
+                document.getElementById('result').innerHTML = numberOne / numberTwo;
+                break;
+        }
+    }
+</script>
+</html>

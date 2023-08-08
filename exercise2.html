@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="inputMoney"></td>
+        <td><select id="valueBefore">
+            <option>VND</option>
+            <option>USD</option>
+        </select></td>
+        <td><select id="valueAfter">
+            <option>VND</option>
+            <option>USD</option>
+        </select></td>
+        <td>
+            <button onclick="convert()">Convert</button>
+        </td>
+    </tr>
+</table>
+<p id="result"></p>
+</body>
+<script>
+    function convert() {
+        const exchangeRate = 23000;
+        let money = +document.getElementById('inputMoney').value;
+        let valueBefore = document.getElementById('valueBefore').value;
+        let valueAfter = document.getElementById('valueAfter').value;
+        console.log('valueBefore=' + valueBefore, 'valueAfter=' + valueAfter)
+        if (valueBefore === 'VND' && valueAfter === 'VND') {
+            document.getElementById('result').innerHTML = "Result:" + money + 'VND';
+        } else if (valueBefore === 'VND' && valueAfter === 'USD') {
+            document.getElementById('result').innerHTML = "Result:" + money / exchangeRate + "$";
+        } else if (valueBefore === 'USD' && valueAfter === 'USD') {
+            document.getElementById('result').innerHTML = "Result:" + money + "$";
+        } else if (valueBefore === 'USD' && valueAfter === 'VND') {
+            document.getElementById('result').innerHTML = "Result:" + money * exchangeRate + "VND";
+        }
+
+    }
+</script>
+</html>
